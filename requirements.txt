@@ -1,0 +1,6 @@
+uwsgi
+flask
+requests
+python-dateutil
+dicttoxml
+pytz

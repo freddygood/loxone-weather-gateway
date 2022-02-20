@@ -1,0 +1,17 @@
+[Unit]
+Description=Loxone Weather Gateway
+After=syslog.target
+
+[Service]
+ExecStart=/home/openhabian/loxone-weather-gateway/venv/bin/uwsgi --ini uwsgi.ini
+WorkingDirectory=/home/openhabian/loxone-weather-gateway
+Restart=always
+KillSignal=SIGQUIT
+ExecReload=/bin/kill -HUP $MAINPID
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+SyslogIdentifier=lwgateway
+
+[Install]
+WantedBy=multi-user.target
